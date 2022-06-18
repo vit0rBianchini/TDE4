@@ -8,7 +8,6 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         long start;
-//Olá, eu voutacar no github
         int n = 10000;
         
         int[] vetor = new int[n];
