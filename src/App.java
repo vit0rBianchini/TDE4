@@ -40,20 +40,46 @@ public class App {
         //System.out.println("Tempo de ordenação ordenado: " + tempoOrdenado + " segundos");
 
 
+        System.out.println("+--------------------------------------------------------------+");
+        System.out.println("|  Tamanho do conjunto:"+n);
+        System.out.println("|               |"+"       Tempos obtidos pelos algoritimos       "+"|");
+        System.out.println("|   Algoritmo   | Quase ordenado |  Desordenado |  Ord. Desc   |");
+
         // // SHELLSORT
+        start = System.currentTimeMillis();
+        ShellSort.shellsort(vetorAleatorio);
+        tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
+
+        start = System.currentTimeMillis();
+        ShellSort.shellsort(vetorDescente);
+        tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
+
+        String mensagem = String.format("|   SHELLSORT   | Quase ordenado |     %.3f    |     %.3f    |", tempoAleatorio, tempoOrdenado);
+
+        System.out.println(mensagem);
+
+        // QUICKSORT
         // start = System.currentTimeMillis();
-        // ShellSort.shellsort(vetorAleatorio);
+        // int size = vetorAleatorio.length;
+        // Quicksort.quickSort(vetorAleatorio, 0, size - 1);
         // tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
 
-        // System.out.println("Tempo de ordenação aleatório: " + tempoAleatorio + " segundos");
+        // HEAPSORT
+        HeapSort h = new HeapSort();
 
+        start = System.currentTimeMillis();
+        h.sort(vetorAleatorio);
+        tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
 
-        // start = System.currentTimeMillis();
-        // ShellSort.shellsort(vetorDescente);
-        // tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
+        start = System.currentTimeMillis();
+        h.sort(vetorDescente);
+        tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
 
-        // System.out.println("Tempo de ordenação ordenado: " + tempoOrdenado + " segundos");
+        mensagem = String.format("|   HEAPSORT    | Quase ordenado |     %.3f    |     %.3f    |", tempoAleatorio, tempoOrdenado);
+        System.out.println(mensagem);
+        
 
+        //AQUI ATÉ
 
         //BUCKETSORT
 
@@ -69,6 +95,22 @@ public class App {
         System.out.println("Tempo de ordenação aleatório: " + tempoAleatorio + " segundos");
         start = System.currentTimeMillis();
 
+        // RADIXSORT
+        RadixSort rs = new RadixSort();
+        int size = vetorAleatorio.length;
+
+        start = System.currentTimeMillis();
+        rs.radixSort(vetorAleatorio, size);
+        tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
+
+        start = System.currentTimeMillis();
+        rs.radixSort(vetorDescente, size);
+        tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
+
+        mensagem = String.format("|   RADIXSORT   | Quase ordenado |     %.3f    |     %.3f    |", tempoAleatorio, tempoOrdenado);
+        System.out.println(mensagem);
+
+        //AQUI
     }
         
     public static int[] insereAleatorio(int[] a, int n){
