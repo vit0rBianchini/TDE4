@@ -6,11 +6,11 @@ public class BucketSort{
 
     public void bucketSort(float[] array, int n){
         n= array.length;
-        bucketList= new ArrayList[n];
+        bucketList= new ArrayList[n];       // dentro dos colchetes é declarada a dimensão da arrayList
 
-        //criação dos buckets, ArrayLists dentro da array "BucketList"
+        //criação dos buckets, ArrayLists dentro da array "bucketList"
         for(int i=0; i < n; i++){
-            bucketList[i] = new ArrayList<Float>();
+            bucketList[i] = new ArrayList<Float>(); //cada um desses será um bucket
         }
 
         //adicionar os elementos em seus respectivos buckets
@@ -21,7 +21,8 @@ public class BucketSort{
 
         //organizar os elementos dentro de cada bucket
         for(int i=0; i<n; i++){
-            //algoritmo de ordenamento((bucketList[i]));
+            ShellSort.shellsort(array);
+            //algoritmo de ordenamento((bucket[i]));
         }
 
 
