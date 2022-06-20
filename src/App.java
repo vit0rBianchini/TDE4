@@ -47,11 +47,11 @@ public class App {
 
         // // SHELLSORT
         start = System.currentTimeMillis();
-        ShellSort.shellsort(vetorAleatorio);
+        ShellSort.shellsort(vetorAleatorioInt);
         tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
 
         start = System.currentTimeMillis();
-        ShellSort.shellsort(vetorDescente);
+        ShellSort.shellsort(vetorDescenteInt);
         tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
 
         String mensagem = String.format("|   SHELLSORT   | Quase ordenado |     %.3f    |     %.3f    |", tempoAleatorio, tempoOrdenado);
@@ -60,7 +60,7 @@ public class App {
 
         // QUICKSORT
         // start = System.currentTimeMillis();
-        // int size = vetorAleatorio.length;
+        // int size = vetorAleatorioInt.length;
         // Quicksort.quickSort(vetorAleatorio, 0, size - 1);
         // tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
 
@@ -68,11 +68,11 @@ public class App {
         HeapSort h = new HeapSort();
 
         start = System.currentTimeMillis();
-        h.sort(vetorAleatorio);
+        h.sort(vetorAleatorioInt);
         tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
 
         start = System.currentTimeMillis();
-        h.sort(vetorDescente);
+        h.sort(vetorDescenteInt);
         tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
 
         mensagem = String.format("|   HEAPSORT    | Quase ordenado |     %.3f    |     %.3f    |", tempoAleatorio, tempoOrdenado);
@@ -97,14 +97,14 @@ public class App {
 
         // RADIXSORT
         RadixSort rs = new RadixSort();
-        int size = vetorAleatorio.length;
+        int size = vetorAleatorioInt.length;
 
         start = System.currentTimeMillis();
-        rs.radixSort(vetorAleatorio, size);
+        rs.radixSort(vetorAleatorioInt, size);
         tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
 
         start = System.currentTimeMillis();
-        rs.radixSort(vetorDescente, size);
+        rs.radixSort(vetorDescenteInt, size);
         tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
 
         mensagem = String.format("|   RADIXSORT   | Quase ordenado |     %.3f    |     %.3f    |", tempoAleatorio, tempoOrdenado);
