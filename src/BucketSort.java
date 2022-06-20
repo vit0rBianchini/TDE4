@@ -1,53 +1,37 @@
+import java.util.ArrayList;
+
 public class BucketSort{
 
-   //public float[][] bucketList= new float[10][];
+    public ArrayList<Float>[] bucketList;              //array de arraylists
 
-   //public int encontraDivisor(float[] a){
+    public void bucketSort(float[] array, int n){
+        n= array.length;
+        bucketList= new ArrayList[n];       // dentro dos colchetes é declarada a dimensão da arrayList
 
-   //    int n = a.length;
-   //    float valorMaximo= a.valorMaximo;
-   //    float valorMinimo= a.valorMinimo;
-   //    int divisor= (int) Math.ceil(valorMaximo + 1/10);
-   //    return divisor;
-   //}
-
-   //public float[] bucketSort(float[] a){
-
-   //    encontraDivisor(a);
-   //    for(int i=0; i< a.length; i++){
-   //        
-   //        int j= (int) Math.floor(a[i] / 9);
-
-   //        bucketList[j] = a[i];
-
-   //    }
-
-   //    return a;
-   //}
-
-    
-    public float valorMaximo(float[] array){
-        float valorMaximo= array[0];
-        for(int i=1; i< array.length; i++){
-            if(array[i] > valorMaximo){
-                valorMaximo = array[i];
-            }
+        //criação dos buckets, ArrayLists dentro da array "bucketList"
+        for(int i=0; i < n; i++){
+            bucketList[i] = new ArrayList<Float>(); //cada um desses será um bucket
         }
 
-        return valorMaximo;
-    }
-
-    public float valorMinimo(float[] array){
-        float valorMinimo= array[0];
-        for(int i=0; i<array.length; i++){
-            if(array[i] < valorMinimo){
-                valorMinimo= array[i];
-            }
+        //adicionar os elementos em seus respectivos buckets
+        for(int i=0; i<n; i++){
+            int indiceBL = (int) (array[i] *n);
+            bucketList[indiceBL].add(array[i]);
         }
 
-        return valorMinimo;
+        //organizar os elementos dentro de cada bucket
+        for(int i=0; i<n; i++){
+            ShellSort.shellsort(array);
+            //algoritmo de ordenamento((bucket[i]));
+        }
+
+
+        //não entendi oq ta acontecendo aqui ainda, mas é pra recuperar o array ordenado.
+        int index = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0, size = bucketList[i].size(); j< size; j++) {
+            array[index++] = bucketList[i].get(j);
+            }
+        }
     }
-
-
-
 }
