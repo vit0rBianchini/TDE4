@@ -11,9 +11,10 @@ public class App {
         int n = 1000000;
         
         int[] vetorInt = new int[n];
+        int[] vetorInt2 = new int[n];
         
         int[] vetorAleatorioInt = insereAleatorio(vetorInt, n);
-        int[] vetorDescenteInt = insereDecrescente(vetorInt, n);
+        int[] vetorDescenteInt = insereDecrescente(vetorInt2, n);
 
         float[] vetorFloat= new float[n];
 
@@ -58,12 +59,6 @@ public class App {
 
         System.out.println(mensagem);
 
-        // QUICKSORT
-        // start = System.currentTimeMillis();
-        // int size = vetorAleatorioInt.length;
-        // Quicksort.quickSort(vetorAleatorio, 0, size - 1);
-        // tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
-
         // HEAPSORT
         HeapSort h = new HeapSort();
 
@@ -83,17 +78,17 @@ public class App {
 
         //BUCKETSORT
 
-        start= System.currentTimeMillis();
-        BucketSort b = new BucketSort();
-        b.bucketSort(vetorAleatorioDouble, n);
+        // start= System.currentTimeMillis();
+        // BucketSort b = new BucketSort();
+        // b.bucketSort(vetorAleatorioDouble, n);
 
-        for (double i : vetorAleatorioDouble){
-            System.out.print(i + "  ");
-        }
+        // for (double i : vetorAleatorioDouble){
+        //     System.out.print(i + "  ");
+        // }
 
-        tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
-        System.out.println("Tempo de ordenação aleatório: " + tempoAleatorio + " segundos");
-        start = System.currentTimeMillis();
+        // tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
+        // System.out.println("Tempo de ordenação aleatório: " + tempoAleatorio + " segundos");
+        // start = System.currentTimeMillis();
 
         // RADIXSORT
         RadixSort rs = new RadixSort();
@@ -118,7 +113,7 @@ public class App {
         Random random = new Random();
 
         for (int i = 0; i < a.length; i++) {
-            int randomPosition = random.nextInt(a.length);
+            int randomPosition = random.nextInt(n);
             int temp = a[i];
             a[i] = a[randomPosition];
             a[randomPosition] = temp;
