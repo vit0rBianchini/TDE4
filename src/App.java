@@ -29,9 +29,9 @@ public class App {
         System.arraycopy(copia, 0, decrescente, 0, copia.length);
         
 
-        double[] vetorDouble= new double[(int) n];
-        double[] vetorAleatorioDouble= insereAleatorio(vetorDouble, n);
-        double[] vetorDecrescenteDouble= insereAleatorio(vetorDouble, n);
+        //double[] vetorDouble= new double[(int) n];
+        //double[] vetorAleatorioDouble= insereAleatorio(vetorDouble, n);
+        //double[] vetorDecrescenteDouble= insereAleatorio(vetorDouble, n);
 
         System.out.println("+----------------------------------------------------------------+");
         System.out.println("|  Tamanho do conjunto:"+n);
@@ -89,14 +89,27 @@ public class App {
 
 
         //BUCKETSORT
-        start= System.currentTimeMillis();
         BucketSort b = new BucketSort();
-        b.bucketSort(vetorAleatorioDouble, n);
 
+        for (int d : aleatorio) {
+            System.out.println(" "+d);
+        }
+
+        System.out.println("");
+
+        System.arraycopy(aleatorio, 0, copia, 0, copia.length);
+        start= System.currentTimeMillis();
+        b.bucketSort(copia, n);
+
+        for (int d : copia) {
+            System.out.print(d+" ");
+        }
+        System.out.println("");
         tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
-
+        
+        System.arraycopy(decrescente, 0, copia, 0, copia.length);
         start = System.currentTimeMillis();
-        b.bucketSort(vetorDecrescenteDouble, n);
+        b.bucketSort(copia, n);
         tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
         
         mensagem = String.format("|   BUCKETSORT  | Quase ordenado |     %.3fs    |     %.3fs    |", tempoAleatorio, tempoOrdenado);
@@ -119,8 +132,49 @@ public class App {
 
         mensagem = String.format("|   RADIXSORT   | Quase ordenado |     %.3fs    |     %.3fs    |", tempoAleatorio, tempoOrdenado);
         System.out.println(mensagem);
+        
+        // SHAKER SHORT
+        
+        // System.arraycopy(aleatorio, 0, copia, 0, copia.length);
+        // start = System.currentTimeMillis();
+        // ShakerSort.shakerSort(copia);
+        // tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
+        
+        // System.arraycopy(decrescente, 0, copia, 0, copia.length);
+        // start = System.currentTimeMillis();
+        // ShakerSort.shakerSort(copia);
+        // tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
+        
+        // mensagem = String.format("|  SHAKERSHORT  | Quase ordenado |     %.3fs    |     %.3fs    |", tempoAleatorio, tempoOrdenado);
+        // System.out.println(mensagem);
+        
+        // GnomeSort
+        // System.arraycopy(aleatorio, 0, copia, 0, copia.length);
+        // start = System.currentTimeMillis();
+        // GnomeSort.gnomeSort(copia, copia.length);
+        // tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
+        
+        // System.arraycopy(decrescente, 0, copia, 0, copia.length);
+        // start = System.currentTimeMillis();
+        // GnomeSort.gnomeSort(copia, copia.length);
+        // tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
+        
+        // mensagem = String.format("|   GNOMESORT   | Quase ordenado |     %.3fs    |     %.3fs    |", tempoAleatorio, tempoOrdenado);
+        // System.out.println(mensagem);
 
-
+        // SELECTSORT
+        System.arraycopy(aleatorio, 0, copia, 0, copia.length);
+        start = System.currentTimeMillis();
+        SelectionSort.selectionSort(copia);
+        tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
+        
+        System.arraycopy(decrescente, 0, copia, 0, copia.length);
+        start = System.currentTimeMillis();
+        SelectionSort.selectionSort(copia);
+        tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
+        
+        mensagem = String.format("|   SELECTSORT  | Quase ordenado |     %.3fs    |     %.3fs    |", tempoAleatorio, tempoOrdenado);
+        System.out.println(mensagem);
 
     }
         

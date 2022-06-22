@@ -17,7 +17,7 @@ public class ShellSort {
             }
     }
 
-    public static void shellsort(ArrayList<Double> ks )
+    public static void shellsort(ArrayList<Integer> ks )
     {
         for( int gap = ks.size() / 2; gap > 0;
             gap = gap == 2 ? 1 : (int) ( gap / 2.2 ) )
@@ -29,7 +29,7 @@ public class ShellSort {
                 for( ; j >= gap && tmp.compareTo( ks.get(j - gap)) < 0; j -= gap ){
                     ks.set( j, ks.get( j - gap ));
                 };
-                ks.set(j, (double) tmp);
+                ks.set(j, (Integer) tmp);
             }
     }
 }
