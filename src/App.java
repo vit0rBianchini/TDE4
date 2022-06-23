@@ -87,35 +87,6 @@ public class App {
         System.out.println(mensagem);
         
 
-
-        //BUCKETSORT
-        BucketSort b = new BucketSort();
-
-        for (int d : aleatorio) {
-            System.out.println(" "+d);
-        }
-
-        System.out.println("");
-
-        System.arraycopy(aleatorio, 0, copia, 0, copia.length);
-        start= System.currentTimeMillis();
-        b.bucketSort(copia, n);
-
-        for (int d : copia) {
-            System.out.print(d+" ");
-        }
-        System.out.println("");
-        tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
-        
-        System.arraycopy(decrescente, 0, copia, 0, copia.length);
-        start = System.currentTimeMillis();
-        b.bucketSort(copia, n);
-        tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
-        
-        mensagem = String.format("|   BUCKETSORT  | Quase ordenado |     %.3fs    |     %.3fs    |", tempoAleatorio, tempoOrdenado);
-        System.out.println(mensagem);
-
-
         // RADIXSORT
         RadixSort rs = new RadixSort();
         System.arraycopy(aleatorio, 0, copia, 0, copia.length);
@@ -149,18 +120,18 @@ public class App {
         // System.out.println(mensagem);
         
         // GnomeSort
-        // System.arraycopy(aleatorio, 0, copia, 0, copia.length);
-        // start = System.currentTimeMillis();
-        // GnomeSort.gnomeSort(copia, copia.length);
-        // tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
+        System.arraycopy(aleatorio, 0, copia, 0, copia.length);
+        start = System.currentTimeMillis();
+        GnomeSort.gnomeSort(copia, copia.length);
+        tempoAleatorio = (float) (System.currentTimeMillis() - start) / 1000;
         
-        // System.arraycopy(decrescente, 0, copia, 0, copia.length);
-        // start = System.currentTimeMillis();
-        // GnomeSort.gnomeSort(copia, copia.length);
-        // tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
+        System.arraycopy(decrescente, 0, copia, 0, copia.length);
+        start = System.currentTimeMillis();
+        GnomeSort.gnomeSort(copia, copia.length);
+        tempoOrdenado = (float) (System.currentTimeMillis() - start) / 1000;
         
-        // mensagem = String.format("|   GNOMESORT   | Quase ordenado |     %.3fs    |     %.3fs    |", tempoAleatorio, tempoOrdenado);
-        // System.out.println(mensagem);
+        mensagem = String.format("|   GNOMESORT   | Quase ordenado |     %.3fs    |     %.3fs    |", tempoAleatorio, tempoOrdenado);
+        System.out.println(mensagem);
 
         // SELECTSORT
         System.arraycopy(aleatorio, 0, copia, 0, copia.length);
